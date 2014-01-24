@@ -5,7 +5,7 @@ Sample clojure-objc project.
 ## Usage
 
 Edit project.clj with your j2objc and clojure-objc locations.
-Edit the sample xcode project build setting as well (header search path and library search path).
+Edit the sample xcode project Build Settings as well (header search path and library search path).
 
      lein compile
      lein objcbuild
