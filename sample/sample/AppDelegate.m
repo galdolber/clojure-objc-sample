@@ -13,17 +13,16 @@
 
 @implementation AppDelegate
 
++ (float)cgrectxWithId:(id)cgrect {
+    return [(NSValue*)cgrect CGRectValue].origin.x;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [ClojureLangObjC setObjC];
     [ClojureLangRT load__WithNSString:@"clojure/core"];
     [ClojureLangRT load__WithNSString:@"clojure_objc_sample/core"];
-    [[ClojureLangRT varWithNSString:@"clojure-objc-sample.core" withNSString:@"say-hi"] invokeWithId:@"Xcode"];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    [[ClojureLangRT varWithNSString:@"clojure-objc-sample.core" withNSString:@"main"] invoke];
     return YES;
 }
 

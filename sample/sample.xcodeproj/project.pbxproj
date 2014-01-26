@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842E36701894E059006F62D1 /* NativeFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E366F1894E059006F62D1 /* NativeFunctions.m */; };
+		842E36761894F5B6006F62D1 /* CTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E36751894F5B6006F62D1 /* CTextField.m */; };
 		84405DDC189226CD007FACBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84405DDB189226CD007FACBA /* Foundation.framework */; };
 		84405DDE189226CD007FACBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84405DDD189226CD007FACBA /* CoreGraphics.framework */; };
 		84405DE0189226CD007FACBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84405DDF189226CD007FACBA /* UIKit.framework */; };
@@ -19,6 +21,7 @@
 		84405DF7189226CE007FACBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84405DDF189226CD007FACBA /* UIKit.framework */; };
 		84405DFF189226CE007FACBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84405DFD189226CE007FACBA /* InfoPlist.strings */; };
 		84405E01189226CE007FACBA /* sampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84405E00189226CE007FACBA /* sampleTests.m */; };
+		8474896918951399004EF526 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474896818951399004EF526 /* CViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		842E366E1894E059006F62D1 /* NativeFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeFunctions.h; sourceTree = "<group>"; };
+		842E366F1894E059006F62D1 /* NativeFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeFunctions.m; sourceTree = "<group>"; };
+		842E36741894F5B6006F62D1 /* CTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTextField.h; sourceTree = "<group>"; };
+		842E36751894F5B6006F62D1 /* CTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTextField.m; sourceTree = "<group>"; };
 		84405DD8189226CD007FACBA /* sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84405DDB189226CD007FACBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84405DDD189226CD007FACBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +55,8 @@
 		84405DFC189226CE007FACBA /* sampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sampleTests-Info.plist"; sourceTree = "<group>"; };
 		84405DFE189226CE007FACBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84405E00189226CE007FACBA /* sampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sampleTests.m; sourceTree = "<group>"; };
+		8474896718951399004EF526 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
+		8474896818951399004EF526 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,12 @@
 			children = (
 				84405DEA189226CD007FACBA /* AppDelegate.h */,
 				84405DEB189226CD007FACBA /* AppDelegate.m */,
+				8474896718951399004EF526 /* CViewController.h */,
+				8474896818951399004EF526 /* CViewController.m */,
+				842E36741894F5B6006F62D1 /* CTextField.h */,
+				842E36751894F5B6006F62D1 /* CTextField.m */,
+				842E366E1894E059006F62D1 /* NativeFunctions.h */,
+				842E366F1894E059006F62D1 /* NativeFunctions.m */,
 				84405DED189226CD007FACBA /* Images.xcassets */,
 				84405DE2189226CD007FACBA /* Supporting Files */,
 			);
@@ -239,8 +254,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8474896918951399004EF526 /* CViewController.m in Sources */,
+				842E36701894E059006F62D1 /* NativeFunctions.m in Sources */,
 				84405DEC189226CD007FACBA /* AppDelegate.m in Sources */,
 				84405DE8189226CD007FACBA /* main.m in Sources */,
+				842E36761894F5B6006F62D1 /* CTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sample/sample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -390,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sample/sample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
