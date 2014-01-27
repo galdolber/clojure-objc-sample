@@ -3,7 +3,7 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :plugins [[lein-objcbuild "0.1.1"]]
+  :plugins [[lein-objcbuild "0.1.2"]]
   :objcbuild {:archs [:i386 :armv7 :armv7s]
               :j2objc "path/to/j2objc"
               :clojure-objc "path/to/clojure-objc"}
