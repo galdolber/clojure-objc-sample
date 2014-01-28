@@ -45,15 +45,14 @@
                    ([:bool :textFieldShouldReturn :id field]
                       ($ field :resignFirstResponder) true))
      :setBackgroundColor gray
-     :events {:UITextFieldTextDidChangeNotification user-changed}
+     ;:events {:UITextFieldTextDidChangeNotification user-changed}
      :setTextColor dark-text-color}]
    [:UITextField :pass
     {:setTextAlignment 1
      :setBackgroundColor gray
      :setTextColor dark-text-color}]
-   [:UIButton :login
-    {:setTitle:forState ["Login" 0]
-     :setBackgroundColor black
+   [(uikit/button 1) :login
+    {:setTitle:forState ["Login!" 0]
      :gestures {:UITapGestureRecognizer login-clicked}}]])
 
 (defn main []

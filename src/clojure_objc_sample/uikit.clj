@@ -66,19 +66,9 @@
         ($ ui :addConstraint c)
         c))))
 
-(defmacro button
-  ([type]
-     `(let [b# ($ ($ UIButton) :buttonWithType ~type)]
-        (:retain b#)
-        b#))
-  ([tag text b & body]
-   `[(button 1) ~tag {:setTitle:forState (list ~text 0)
-                      :gestures {$UITapGestureRecognizer
-                                 {:setNumberOfTapsRequired 1
-                                  :setNumberOfTouchesRequired 1
-                                  :handler (fn [scope]
-                                             (let [{:keys ~b} @scope]
-                                               ~@body))}}}]))
+(defn button [type]
+  (doto ($ ($ UIButton) :buttonWithType type)
+    (:retain)))
 
 (defn create-scope
   ([] (create-scope {}))
@@ -100,7 +90,6 @@
                    (let [views ($ ($ NSMutableDictionary) :new)]
                      (swap! scope assoc :views views)
                       views))]
-       
        ($ views :setValue view :forKey (name tag))
        (swap! scope assoc tag view)
        (swap! (:dealloc @scope) conj view)
