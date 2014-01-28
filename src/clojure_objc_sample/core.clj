@@ -3,6 +3,7 @@
 
 (def red ($ ($ UIColor) :redColor))
 (def blue ($ ($ UIColor) :blueColor))
+(def gray ($ ($ UIColor) :grayColor))
 (def white ($ ($ UIColor) :whiteColor))
 (def black ($ ($ UIColor) :blackColor))
 (def dark-text-color ($ ($ UIColor) :darkTextColor))
@@ -10,85 +11,56 @@
 (def native ($ NativeFunctions))
 
 (def demo
-  (apply conj [:UIView :main {:setBackgroundColor red
-                              :constraints ["H:|-[label0]-|"
-                                            "H:|-[label1]-|"
-                                            "H:|-[label2]-|"
-                                            "V:|-[label0]-[label1]-[label2]"]}]
-         (for [i (range 3)]
-           [:UILabel (keyword (str "label" i)) {:setText (str "Label" i)}])))
+  (let [n 5
+        r (range n)
+        id "label"]    
+    [:UIScrollView :main
+     {:setBackgroundColor white
+      :constraints ["H:|[content]|"]
+      :setAlwaysBounceVertical true}
+     (apply
+      conj
+      [:UIView :content
+       {:constraints (conj (mapv #(str "H:|-[" id % "]-|") r)
+                           (str "V:|" (reduce str (map #(str "-[" id % "]") r))))}]
+      (for [i r]
+        [:UILabel (keyword (str id i)) {:setText (str "Label" i)}]))]))
 
 (defn login-clicked [{:keys [login]}]
-  ($ (uikit/top-controller) :pushViewController
-     (uikit/controller "Demo!" demo)
-     :animated true))
+  (uikit/nav-push (uikit/controller "Demo!" demo) true))
 
 (defn user-changed [{:keys [pass]}]
   ($ pass :setText "password"))
 
 (def login
   [:UIView :main
-   {:setBackgroundColor blue
-    :events {:WillShow
-             (fn [{:keys [user]}]
-               ($ user :becomeFirstResponder))}
-    :constraints ["C:user.top=main.top 1.0 5"
-                  "C:user.height=nil.nil 1.0 40"
-                  "C:pass.top=user.bottom 1.0 5"
-                  "C:pass.height=nil.nil 1.0 40"
-                  "V:[pass]-[login(30)]"
+   {:setBackgroundColor white
+    :constraints ["V:|-[user(50)]-[pass(50)]-[login]"
                   "H:|-[user]-|"
                   "H:|-[pass]-|"
                   "H:|-[login]-|"]}
-   [:CTextField :user
+   [:UITextField :user
     {:setTextAlignment 1
-     :setBackgroundColor white
+     :setDelegate (nsproxy
+                   ([:bool :textFieldShouldReturn :id field]
+                      ($ field :resignFirstResponder) true))
+     :setBackgroundColor gray
      :events {:UITextFieldTextDidChangeNotification user-changed}
      :setTextColor dark-text-color}]
-   [:CTextField :pass
+   [:UITextField :pass
     {:setTextAlignment 1
-     :setBackgroundColor white
+     :setBackgroundColor gray
      :setTextColor dark-text-color}]
    [:UIButton :login
     {:setTitle:forState ["Login" 0]
-     :setBackgroundColor red
+     :setBackgroundColor black
      :gestures {:UITapGestureRecognizer login-clicked}}]])
-
-(defn keyboard-will-hide [noti]
-  ($ (uikit/top-view) :setFrame screen-bounds))
-
-(defn keyboard-will-show [noti]
-  (let [keyboard-frame (-> ($ noti :userInfo)
-                           ($ :valueForKey "UIKeyboardFrameBeginUserInfoKey"))]
-    ($ (uikit/top-view) :setFrame
-       ($ native
-          :cgrectmake ($ native :cgrectx screen-bounds)
-          :y ($ native :cgrecty screen-bounds)
-          :w ($ native :cgrectw screen-bounds)
-          :h (- ($ native :cgrecth screen-bounds)
-                ($ native :cgrecth keyboard-frame))))))
-
-(defn nav-did-show-view [noti]
-  (uikit/send-notification 
-   (-> ($ noti :userInfo)
-       ($ :valueForKey "UINavigationControllerNextVisibleViewController")
-       ($ :view))
-   :WillShow))
 
 (defn main []
   (let [window ($ ($ ($ UIWindow) :alloc) :initWithFrame screen-bounds)
         navcontroller ($ ($ UINavigationController) :new)]
     ($ window :setBackgroundColor black)
-    ($ window :makeKeyAndVisible)
     ($ window :setRootViewController navcontroller)
-
-    (uikit/add-notification
-     navcontroller nav-did-show-view
-     :UINavigationControllerDidShowViewControllerNotification)
-
-    ;(uikit/setup-keyboard keyboard-will-show keyboard-will-hide)
-
+    ($ window :makeKeyAndVisible)
     ($ ($ navcontroller :navigationBar) :setTranslucent false)
-    ($ navcontroller :pushViewController
-       (uikit/controller "Login" login)
-       :animated false)))
+    (uikit/nav-push (uikit/controller "Login" login))))

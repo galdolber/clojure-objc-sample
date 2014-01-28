@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 clojure-objc. All rights reserved.
 //
 
-#import "CViewController.h"
+#import "UIKitController.h"
 #import "clojure/lang/AFn.h"
 #import "clojure/lang/Var.h"
 #import "clojure/lang/RT.h"
 
 static ClojureLangAFn* dealloc;
 
-@implementation CViewController {
+@implementation UIKitController {
     id scope;
 }
 

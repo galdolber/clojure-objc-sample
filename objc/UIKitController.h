@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CViewController : UIViewController
+// UIViewController cannot be nsproxy'd
+// http://stackoverflow.com/questions/17927639/adding-a-root-view-controller-ocmockobjectuiviewcontroller-as-a-child-view-con
+
+@interface UIKitController : UIViewController
 
 -initWithView:(UIView*)view withScope:(id)scope;
 

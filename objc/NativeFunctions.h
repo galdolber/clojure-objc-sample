@@ -5,12 +5,16 @@
 //  Created by admin on 1/26/14.
 //
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 #ifndef _ObjcNativeFunctions_H_
 #define _ObjcNativeFunctions_H_
 
 @interface NativeFunctions : NSObject {
 }
 
++ (CGPoint)cgpointmake:(float)x y:(float)y;
 + (float)cgrectx:(id)cgrect;
 + (float)cgrecty:(id)cgrect;
 + (float)cgrectw:(id)cgrect;
@@ -19,7 +23,7 @@
                 y:(float)y
                 w:(float)w
                 h:(float)h;
-- (id)init;
+
 @end
 
 #endif // _ObjcNativeFunctions_H_

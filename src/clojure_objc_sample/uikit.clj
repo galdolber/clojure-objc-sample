@@ -151,11 +151,13 @@
               ($ view :addTarget handler :action (sel "invoke") :forControlEvents k))))
         view)))
 
-(defn top-controller []
+(defn key-window []
   (-> ($ UIApplication)
       ($ :sharedApplication)
-      ($ :keyWindow)
-      ($ :rootViewController)))
+      ($ :keyWindow)))
+
+(defn top-controller []
+  ($ (key-window) :rootViewController))
 
 (defn top-view []
   ($ (top-controller) :view))
@@ -176,15 +178,6 @@
      :name "UIKeyboardWillHideNotification"
      :object nil))
 
-(defn controller [title view]
-  ($ (top-view) :endEditing true)
-  (let [scope (create-scope)
-        view (make-ui scope view)]
-    (doto ($ ($ ($ CViewController) :alloc) :initWithView view :withScope scope)
-      ($ :setTitle title)
-      ($ :setView view)
-      ($ :autorelease))))
-
 (defn dealloc [scope]
   (doseq [v @(:dealloc @scope)]
     (send-notification v :Dealloc)
@@ -192,3 +185,15 @@
     ($ v :release))
   ($ (:views @scope) :release)
   (reset! scope nil))
+
+(defn controller [title view]
+  (let [scope (create-scope)
+        view (make-ui scope view)]
+    (doto ($ ($ ($ UIKitController) :alloc) :initWithView view :withScope scope)
+      ($ :setTitle title)
+      ($ :setView view)
+      ($ :autorelease))))
+
+(defn nav-push
+  ([controller] (nav-push controller false))
+  ([controller animated] ($ (top-controller) :pushViewController controller :animated animated)))

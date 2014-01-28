@@ -4,15 +4,13 @@ Sample clojure-objc project.
 
 ## Usage
 
-Download j2objc and the last clojure-objc dist from: https://github.com/galdolber/clojure-objc
+Download j2objc and the last clojure-objc dist(static lib and headers) from: https://github.com/galdolber/clojure-objc
 
-Add j2objc to your PATH
+Edit Config.xcconfig with your local paths.
 
 Edit project.clj with your j2objc and clojure-objc locations.
-Edit the sample xcode project Build Settings as well (header search path and library search path).
 
-     lein compile
-     lein objcbuild
+     lein clean; lein compile; lein objcbuild
 
      Run xcode project!
 
