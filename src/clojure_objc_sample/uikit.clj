@@ -97,7 +97,10 @@
         (doseq [p (if (map? props) props (partition 2 props))]
           (set-property scope view p))
         
-        (doseq [c children]
+        (doseq [c (if (and (= 1 (count children))
+                           (not (vector? (first children))))
+                    (first children)
+                    children)]
           (let [s (make-ui scope c)]
             ($ s :setTranslatesAutoresizingMaskIntoConstraints false)
             ($ view :addSubview s)))

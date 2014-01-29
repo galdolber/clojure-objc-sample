@@ -18,13 +18,11 @@
      {:setBackgroundColor white
       :constraints ["H:|[content]|"]
       :setAlwaysBounceVertical true}
-     (apply
-      conj
-      [:UIView :content
-       {:constraints (conj (mapv #(str "H:|-[" id % "]-|") r)
-                           (str "V:|" (reduce str (map #(str "-[" id % "]") r))))}]
+     [:UIView :content
+      {:constraints (conj (mapv #(str "H:|-[" id % "]-|") r)
+                          (str "V:|" (reduce str (map #(str "-[" id % "]") r))))}
       (for [i r]
-        [:UILabel (keyword (str id i)) {:setText (str "Label" i)}]))]))
+        [:UILabel (keyword (str id i)) {:setText (str "Label" i)}])]]))
 
 (defn login-clicked [{:keys [login]}]
   (uikit/nav-push (uikit/controller "Demo!" demo) true))
@@ -45,7 +43,7 @@
                    ([:bool :textFieldShouldReturn :id field]
                       ($ field :resignFirstResponder) true))
      :setBackgroundColor gray
-     ;:events {:UITextFieldTextDidChangeNotification user-changed}
+     :events {:UITextFieldTextDidChangeNotification user-changed}
      :setTextColor dark-text-color}]
    [:UITextField :pass
     {:setTextAlignment 1
