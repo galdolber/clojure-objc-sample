@@ -1,2 +1,2 @@
-CLOJUREOBJC="/Users/admin/github/clojurejvm/target"
-J2OBJC="/Users/admin/projects/j2objc/dist"
+CLOJUREOBJC="/path/to/clojure-objc"
+J2OBJC="/path/to/j2objc"
