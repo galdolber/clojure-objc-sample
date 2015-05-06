@@ -11,6 +11,6 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
+    #define J2OBJC_DISABLE_ALL_CHECKS 1
     #import <Foundation/Foundation.h>
 #endif

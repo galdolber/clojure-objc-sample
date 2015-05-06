@@ -10,29 +10,29 @@
 	<string>sample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>82CC43BB-E95F-4F5A-9EC7-0687492D1497</key>
+		<key>5964956D66FC04634E6A8382ACEBA04DCDACD78C</key>
 		<string>https://github.com/galdolber/clojure-objc-sample.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>sample/sample.xcodeproj/project.xcworkspace</string>
+	<string>sample/sample.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>82CC43BB-E95F-4F5A-9EC7-0687492D1497</key>
+		<key>5964956D66FC04634E6A8382ACEBA04DCDACD78C</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/galdolber/clojure-objc-sample.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>82CC43BB-E95F-4F5A-9EC7-0687492D1497</string>
+	<string>5964956D66FC04634E6A8382ACEBA04DCDACD78C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>82CC43BB-E95F-4F5A-9EC7-0687492D1497</string>
+			<string>5964956D66FC04634E6A8382ACEBA04DCDACD78C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>clojure-objc-sample</string>
 		</dict>
