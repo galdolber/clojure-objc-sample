@@ -14,6 +14,8 @@ Edit project.clj with your j2objc and clojure-objc locations.
 
      Run xcode project!
 
+![alt usage guide](https://github.com/galdolber/clojure-objc-sample/raw/master/ios.gif)
+
 ## License
 
 Copyright © 2014 Gal Dolber
