@@ -6,11 +6,11 @@ Sample clojure-objc project.
 
 Download j2objc and the last clojure-objc dist(static lib and headers) from: https://github.com/galdolber/clojure-objc
 
-Edit Config.xcconfig with your local paths.
+Edit Config.xcconfig with your local release path. (~/.clojure-objc/{version} if it was downloaded with the lein plugin)
 
 Edit project.clj with your j2objc and clojure-objc locations.
 
-     lein clean; lein compile; lein objcbuild
+     lein objcbuild auto
 
      Run xcode project!
 
