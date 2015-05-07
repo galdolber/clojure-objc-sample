@@ -21,8 +21,8 @@
     [ClojureLangRT load__WithNSString:@"clojure/core"];
 
     // to start repl: uncomment, start jvm repl and call (remote-repl)
-    [ReplClient connect:@"localhost"];
-    return YES;
+    // [ReplClient connect:@"localhost"];
+    // return YES;
     
     // to run app
     [ClojureLangRT load__WithNSString:@"sample/core"];
